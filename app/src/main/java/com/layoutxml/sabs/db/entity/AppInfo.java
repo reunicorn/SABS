@@ -35,4 +35,7 @@ public class AppInfo {
 
     @ColumnInfo(name = "disabled")
     public boolean disabled;
+
+    @ColumnInfo(name = "mobileRestricted")
+    public boolean mobileRestricted;
 }

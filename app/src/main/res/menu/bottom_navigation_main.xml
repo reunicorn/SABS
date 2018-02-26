@@ -11,6 +11,11 @@
         android:id="@+id/packageDisablerTab"
         android:title="@string/package_disabler_bottombar_title"/>
     <item
+        android:icon="@drawable/ic_refresh"
+        android:enabled="true"
+        android:id="@+id/mobileRestricterTab"
+        android:title="@string/mobile_restricter_bottombar_title"/>
+    <item
         android:icon="@drawable/ic_lock_outline"
         android:enabled="true"
         android:id="@+id/appPermissionsTab"

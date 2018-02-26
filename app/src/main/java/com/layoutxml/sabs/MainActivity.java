@@ -41,6 +41,7 @@ import com.layoutxml.sabs.fragments.AppListFragment;
 import com.layoutxml.sabs.fragments.BlockCustomUrlFragment;
 import com.layoutxml.sabs.fragments.BlockedUrlSettingFragment;
 import com.layoutxml.sabs.fragments.BlockerFragment;
+import com.layoutxml.sabs.fragments.MobileRestricterFragment;
 import com.layoutxml.sabs.fragments.CustomBlockUrlProviderFragment;
 import com.layoutxml.sabs.fragments.AboutFragment;
 import com.layoutxml.sabs.fragments.DonateFragment;
@@ -235,6 +236,9 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case R.id.packageDisablerTab:
                                 replacing = new PackageDisablerFragment();
+                                break;
+                            case R.id.mobileRestricterTab:
+                                replacing = new MobileRestricterFragment();
                                 break;
                             case R.id.appPermissionsTab:
                                 replacing = new AdhellPermissionInfoFragment();

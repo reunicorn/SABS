@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_pack_dis_reload"
+        android:icon="@drawable/ic_refresh"
+        android:orderInCategory="100"
+        android:title="Reload"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/action_pack_dis_sort"
+        android:icon="?ic_sort"
+        android:orderInCategory="100"
+        android:title="Sort"
+        app:showAsAction="always">
+        <menu>
+            <item android:title="@string/sort_by_alphabet" android:id="@+id/sort_alphabetically_item"/>
+            <item android:title="@string/sort_by_install_time" android:id="@+id/sort_by_time_item"/>
+            <item android:title="@string/sort_by_restricted" android:id="@+id/sort_restricted_item"/>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/action_overflow"
+        android:icon="@drawable/ic_more_vert"
+        android:orderInCategory="100"
+        android:title="Overflow"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/restricter_import_storage"
+                android:title="@string/disabler_import_storage" />
+            <item
+                android:id="@+id/restricter_export_storage"
+                android:title="@string/disabler_export_storage" />
+            <item
+                android:id="@+id/restricter_enable_all"
+                android:title="@string/disabler_enable_all" />
+        </menu>
+    </item>
+</menu>
