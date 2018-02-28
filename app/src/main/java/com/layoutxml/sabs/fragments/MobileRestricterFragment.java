@@ -210,7 +210,7 @@ public class MobileRestricterFragment extends LifecycleFragment {
             @Override
             protected void onPostExecute(Void o) {
                 super.onPostExecute(o);
-                loadApplicationsList(true);
+                loadApplicationsList(false);
             }
         }.execute();
     }
@@ -264,7 +264,7 @@ public class MobileRestricterFragment extends LifecycleFragment {
             @Override
             protected void onPostExecute(Void o) {
                 super.onPostExecute(o);
-                loadApplicationsList(true);
+                loadApplicationsList(false);
             }
         }.execute();
     }
@@ -298,15 +298,20 @@ public class MobileRestricterFragment extends LifecycleFragment {
         String filterText = '%' + editText.getText().toString() + '%';
         switch (sortState) {
             case SORTED_ALPHABETICALLY:
-                if (filterText.length() == 0) return mDb.applicationInfoDao().getEnabledApps();
+                if (filterText.length() == 0) {
+                    return mDb.applicationInfoDao().getEnabledApps();
+                }
                 return mDb.applicationInfoDao().getEnabledAppsAlphabetically(filterText);
             case SORTED_INSTALL_TIME:
-                if (filterText.length() == 0) return mDb.applicationInfoDao().getAllRecentSort();
+                if (filterText.length() == 0) {
+                    return mDb.applicationInfoDao().getEnabledAppsInTimeOrder();
+                }
                 return mDb.applicationInfoDao().getEnabledAppsInTimeOrder(filterText);
             case SORTED_RESTRICTED:
-                if (filterText.length() == 0)
-                    return mDb.applicationInfoDao().getSortedMobileRestrictedApps();
-                return mDb.applicationInfoDao().getSortedMobileRestrictedAppsWithStrInName(filterText);
+                if (filterText.length() == 0) {
+                    return mDb.applicationInfoDao().getEnableAppsByMobileRestricted();
+                }
+                return mDb.applicationInfoDao().getEnableAppsByMobileRestricted(filterText);
         }
         return null;
     }

@@ -65,20 +65,23 @@ public interface AppInfoDao {
     @Query("SELECT * FROM AppInfo WHERE disabled = 0 ORDER BY appName ASC")
     List<AppInfo> getEnabledApps();
 
-    @Query("SELECT * FROM AppInfo WHERE mobileRestricted = 1 AND disabled = 0")
-    List<AppInfo> getMobileRestrictedApps();
-
     @Query("SELECT * FROM AppInfo WHERE (appName LIKE :str OR packageName LIKE :str) AND disabled = 0 ORDER BY appName ASC")
     List<AppInfo> getEnabledAppsAlphabetically(String str);
+
+    @Query("SELECT * FROM AppInfo WHERE disabled = 0 ORDER BY installTime DESC")
+    List<AppInfo> getEnabledAppsInTimeOrder();
 
     @Query("SELECT * FROM AppInfo WHERE (appName LIKE :str OR packageName LIKE :str) AND disabled = 0 ORDER BY installTime DESC")
     List<AppInfo> getEnabledAppsInTimeOrder(String str);
 
-    @Query("SELECT * FROM AppInfo WHERE (appName LIKE :str OR packageName LIKE :str) ORDER BY mobileRestricted DESC, appName ASC")
-    List<AppInfo> getSortedMobileRestrictedAppsWithStrInName(String str);
-
     @Query("SELECT * FROM AppInfo ORDER BY mobileRestricted DESC, appName ASC")
-    List<AppInfo> getSortedMobileRestrictedApps();
+    List<AppInfo> getEnableAppsByMobileRestricted();
+
+    @Query("SELECT * FROM AppInfo WHERE (appName LIKE :str OR packageName LIKE :str) ORDER BY mobileRestricted DESC, appName ASC")
+    List<AppInfo> getEnableAppsByMobileRestricted(String str);
+
+    @Query("SELECT * FROM AppInfo WHERE mobileRestricted = 1 AND disabled = 0")
+    List<AppInfo> getMobileRestrictedApps();
 
     @Update
     void update(AppInfo appInfo);
