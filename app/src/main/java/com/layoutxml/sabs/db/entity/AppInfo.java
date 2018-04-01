@@ -11,7 +11,7 @@ import com.layoutxml.sabs.db.DateConverter;
 
 @Entity(
         tableName = "AppInfo",
-        indices = {@Index("appName"), @Index("installTime"), @Index("disabled"), @Index("mobileRestricted")}
+        indices = {@Index("appName"), @Index("installTime"), @Index("disabled")}
 )
 @TypeConverters(DateConverter.class)
 public class AppInfo {
