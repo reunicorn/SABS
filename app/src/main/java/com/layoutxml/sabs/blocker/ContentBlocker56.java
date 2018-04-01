@@ -73,26 +73,6 @@ public class ContentBlocker56 implements ContentBlocker {
         if (isEnabled()) {
             disableBlocker();
         }
-        Log.d(TAG, "Adding: DENY MOBILE DATA");
-        List<AppInfo> restrictedApps = appDatabase.applicationInfoDao().getMobileRestrictedApps();
-        if (restrictedApps.size() > 0) {
-            // Define DENY rules for mobile data
-            FirewallRule[] mobileRules = new FirewallRule[restrictedApps.size()];
-            for (int i = 0; i < restrictedApps.size(); i++) {
-                mobileRules[i] = new FirewallRule(FirewallRule.RuleType.DENY, Firewall.AddressType.IPV4);
-                mobileRules[i].setNetworkInterface(Firewall.NetworkInterface.MOBILE_DATA_ONLY);
-                mobileRules[i].setApplication(new AppIdentity(restrictedApps.get(i).packageName, null));
-            }
-
-            // Send rules to the firewall
-            FirewallResponse[] response = mFirewall.addRules(mobileRules);
-            if (FirewallResponse.Result.SUCCESS == response[0].getResult()) {
-                Log.i(TAG, "Mobile data rules have been added: " + response[0].getMessage());
-            } else {
-                Log.i(TAG, "Failed to add mobile data rules: " + response[0].getMessage());
-            }
-        }
-        Log.i(TAG, "Restricted apps size: " + restrictedApps.size());
 
         // Set the AppIdentity (all packages)
         AppIdentity appIdentity = new AppIdentity("*", null);

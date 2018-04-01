@@ -11,7 +11,6 @@ import com.layoutxml.sabs.dagger.module.NetworkModule;
 import com.layoutxml.sabs.dagger.scope.AdhellApplicationScope;
 import com.layoutxml.sabs.fragments.BlockedUrlSettingFragment;
 import com.layoutxml.sabs.fragments.BlockerFragment;
-import com.layoutxml.sabs.fragments.MobileRestricterFragment;
 import com.layoutxml.sabs.fragments.PackageDisablerFragment;
 import com.layoutxml.sabs.service.BlockedDomainService;
 import com.layoutxml.sabs.utils.AdhellAppIntegrity;
@@ -38,8 +37,6 @@ public interface AppComponent {
     void inject(BlockedUrlSettingFragment blockedUrlSettingFragment);
 
     void inject(PackageDisablerFragment packageDisablerFragment);
-
-    void inject(MobileRestricterFragment mobileRestricterFragment);
 
     void inject(AdhellWhitelistAppsViewModel adhellWhitelistAppsViewModel);
 
