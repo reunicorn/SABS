@@ -21,7 +21,7 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        applicationId "com.layoutxm1.sabs"
+        applicationId "com.reunicorn.sab"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 557
